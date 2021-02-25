@@ -1,0 +1,31 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mixins;
+
+/* ------------------------------------------------------------------------------------------------------
+* _base.scss : Initialisation des variables css et des propriétés basique pour les éléments html et body
+ -------------------------------------------------------------------------------------------------------- */
+
+:root {
+  --heading-margin-top-base : #{var.$heading-margin-top-base};
+  --heading-font-weight     : #{var.$heading-font-weight};
+  --heading-line-height     : #{var.$heading-line-height};
+  --heading-font-size-base  : #{var.$heading-font-size-base};
+}
+@include mixins.set-css-root-vars(var.$heading-sizes, "heading-size");
+@include mixins.set-css-root-vars(var.$default-theme);
+@include mixins.set-css-root-vars(var.$shadow-presets);
+
+html {
+  font-size: clamp(#{var.$device-font-size-min}, #{var.$device-font-size-ratio}, #{var.$device-font-size-max});
+  line-height: var.$default-line-height;
+}
+
+body {
+  font-size: 1rem;
+  background-color: var(--default-color-background);
+  color : var(--default-color-text);
+  font-weight: 400;
+  scroll-behavior: smooth; // native smooth scrolling 
+  min-height: 100vh;	
+}
+

@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as func;
+/* ------------------------------------------------------------------------------------------------------
+ * _text.scss : utilitaires pour manipuler les textes et titres "Hn"
+ -------------------------------------------------------------------------------------------------------- */
+
+// alignements
+.text-justify  { text-align: justify !important; }
+.text-start    { text-align: left !important; }
+.text-center   { text-align: center !important; }
+.text-end      { text-align: right !important; }
+
+
+@each $idx, $size in var.$heading-sizes {
+  h#{$idx}, 
+  .like-h#{$idx} {
+    font-size: #{calc(#{func.use-css-var("heading-size-#{$idx}") } * #{func.use-css-var("heading-font-size-base")})};
+    font-weight: #{func.use-css-var("heading-font-weight")};
+    line-height: #{func.use-css-var("heading-line-height")};    
+    margin-top: calc(#{func.use-css-var("heading-margin-top-base")} * #{func.use-css-var("heading-size-#{$idx}")});
+  }
+
+  // On définit automatiquement les marges haute de l'élément qui suit en fonction de la taille du titre "Hn" ==> Rythme vertical
+  h#{$idx} + *, 
+  .like-h#{$idx} + * {
+    margin-top: calc((#{func.use-css-var("heading-margin-top-base")} * #{func.use-css-var("heading-size-#{$idx}")}) / 2) !important;
+  }
+}

@@ -1,0 +1,17 @@
+/* ------------------------------------------------------------------------------------------------------
+* _common.scss : Fichier d'inclusion commun pour le style css d'une page
+ -------------------------------------------------------------------------------------------------------- */
+@use "../utilities/reset";
+
+@use "../utilities/grid";
+@use "../utilities/layout";
+@use "../utilities/design";
+@use "../utilities/text";
+
+@use "./animations";
+@use "./base";
+@use "./typographie";
+
+@use "../layout/navigation";
+@use "../layout/footer";
+@use "../layout/share-components";

@@ -1,0 +1,85 @@
+/* ------------------------------------------------------------------------------------------------------
+* _animations.scss : Quelques animations de base. A vous de rajouter les votres ici 
+ -------------------------------------------------------------------------------------------------------- */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }  
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;    
+  }
+
+  100% {
+    opacity: 1 !important;    
+  }
+}
+
+@keyframes shadowBeat {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  50% {transform: translateY(-50%) ;}
+}
+
+@keyframes BounceDownUp {
+  0%   { transform:translateY(-1rem);  }
+
+  50%  { transform:translateY(.5rem); }
+
+  100% { transform:translateY(-1rem);   }
+}

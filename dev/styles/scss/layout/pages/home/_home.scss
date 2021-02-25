@@ -1,0 +1,11 @@
+@use "header";
+
+.section-about {
+  display:flex;
+  flex-direction: column;
+}
+
+.section-features {
+  display:flex;
+  flex-direction: column;
+}

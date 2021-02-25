@@ -1,0 +1,55 @@
+{
+  "name": "beanz-web-starter-kit",
+  "version": "1.0.0",
+  "description": "Beanz Web Starter Kit is an opinionated boilerplate for designed front-end developers",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx gulp devBuild",
+    "serve": "npx gulp watch",
+    "build": "npx gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdelauney/beanz-web-starter-kit.git"
+  },
+  "keywords": [
+    "gulpjs",
+    "startkit",
+    "starterkit",
+    "frontend",
+    "es6",
+    "javascript",
+    "webdev",
+    "optimization",
+    "automatisation"
+  ],
+  "author": "Jérôme Delauney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdelauney/beanz-web-starter-kit/issues"
+  },
+  "homepage": "https://github.com/jdelauney/beanz-web-starter-kit",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "postcss": "^8.2.6",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cache": "^1.1.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-purgecss": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "imagemin-svgo": "^8.0.0",
+    "imagemin-webp": "^6.0.0",
+    "imagemin-zopfli": "^7.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-html-minifier-terser": "^6.0.1",
+    "gulp-postcss": "^9.0.0",
+    "autoprefixer": "^10.2.4",
+    "postcss-sort-media-queries": "^3.4.3",
+    "cssnano": "^4.1.10"
+  }
+}

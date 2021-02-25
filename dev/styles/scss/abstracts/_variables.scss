@@ -1,0 +1,81 @@
+/* ------------------------------------------------------------------------------------------------------
+* _variables.scss : Quelques constante pour les pages
+ -------------------------------------------------------------------------------------------------------- */
+
+// Tailles des polices de caractères fluide en fonction de la largeur de l'ecran de l'appareil
+$device-font-size-min   : 14px;
+$device-font-size-ratio : 2.5vw;
+$device-font-size-max   : 20px;
+
+// Espaces pour les marges internes et externes
+$spacers         : ("0.5rem", "1rem", "1.5rem", "2rem", "4rem", "8rem", "auto");
+$spacer-prefixes : ("tiny", "small", "default", "medium", "big", "huge", "auto");
+
+// Gestion des tailles des titres Hn
+$heading-margin-top-base : 1.272; //racine carre du nombre d'or
+$heading-font-weight     : 500;
+$heading-line-height     : 1.618; // nombre d'or
+$heading-font-size-base  : 1;
+
+$heading-sizes : (
+  1: ($heading-font-size-base * 3.5rem), 
+  2: ($heading-font-size-base * 3rem),   
+  3: ($heading-font-size-base * 2.5rem), 
+  4: ($heading-font-size-base * 2rem),   
+  5: ($heading-font-size-base * 1.5rem), 
+  6: ($heading-font-size-base * 1rem)    
+);
+
+$default-line-height : 1.618;
+
+// Theme de couleurs par défaut
+$default-theme : (
+  color-white           : #fff,
+  color-black           : #131416,
+
+  color-neutral-light   : #ccc,
+  color-neutral         : #777,
+  color-neutral-dark    : #333,
+
+  color-primary-light   : #55c57a,
+  color-primary         : #7ed56f,
+  color-primary-dark    : #22946e,
+
+  color-secondary-light : #ffeedc,
+  color-secondary       : #e5bb8b,
+  color-secondary-dark  : #6b5b4c,
+
+  // color-tertiary-light :#2998ff,
+  // color-tertiary       :#227ed4,
+  // color-tertiary-dark  :#493ad1,
+
+  // color-quaternary-light :#2998ff,
+  // color-quaternary       :#227ed4,
+  // color-quaternary-dark  :#493ad1,
+  
+  // color-complementary-light :#2998ff,
+  // color-complementary       :#227ed4,
+  // color-complementary-dark  :#493ad1,
+
+  default-color-text       : #000,
+  default-color-background : #fff,
+
+  color-shadow : rgba(0, 0, 0, .3)
+
+);
+
+/* 
+ * Quelques modele d'ombre cf https://brumm.af/shadows 
+ * Peut-être à passer dans design sous forme de variables scss
+ */
+$shadow-presets : (
+  shadow-preset-realistic : "0 1px 1px rgba(16,27,30,0.15), 0 2px 2px rgba(16,27,30,0.15), 0 4px 4px rgba(16,27,30, 0.15), 0 8px 8px rgba(16,27,30,0.15), 0 16px 16px rgba(16,27,30,0.15)",
+  shadow-preset-smooth    : "0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12)",
+  shadow-preset-medium    : "0 1px 1px rgba(0,0,0,0.15), 0 2px 2px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.15)",
+  shadow-preset-long      : "0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11)",
+  shadow-preset-diffuse   : "0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.16), 0 8px 8px rgba(0,0,0,0.20)",
+  shadow-preset-sharp     : "0 1px 1px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.20), 0 4px 4px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.10), 0 16px 16px rgba(0,0,0,0.05)",
+  shadow-preset-dreamy    : "0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)",
+  shadow-preset-shorter   : "0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 6px 8px rgba(0,0,0,0.11), 0 8px 16px rgba(0,0,0,0.11)",
+  shadow-preset-longer    : "0 2px 1px rgba(0,0,0,0.09), 0 4px 2px rgba(0,0,0,0.09), 0 8px 4px rgba(0,0,0,0.09), 0 16px 8px rgba(0,0,0,0.09),0 32px 16px rgba(0,0,0,0.09)"  
+);

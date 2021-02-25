@@ -1,0 +1,260 @@
+@use "../abstracts/breakpoints" as mq;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mixins;
+
+/* Conténaires */
+/*
+ * Conténaires fluide
+ */
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  width: 100vw !important;
+  // padding-left: var(--container-fluid-padding) !important; 
+  // padding-right: var(--container-fluid-padding) !important; 
+}
+
+/*
+* Conténaires standard
+*/
+.container {
+  display: flex;
+  flex-direction: column;
+  
+  --container-padding : .5rem;
+  --container-margin  : 0;
+
+  //width:100vw !important;
+
+  margin-left : var(--container-margin) !important; 
+  margin-right: var(--container-margin) !important;
+
+  padding-left : var(--container-padding);
+  padding-right: var(--container-padding);   
+}
+
+/*
+* Similaire à Conténaires standard mais sur toute la largeur de l'écran
+ */
+.container-full {
+  display: flex !important; 
+  flex-direction: column !important; 
+  
+  --container-padding : .5rem;
+  --container-margin  : 0vw;
+
+  //width: 100w !important; 
+  padding-left: calc(var(--container-margin) + var(--container-padding)) !important; 
+  padding-right: calc(var(--container-margin) + var(--container-padding)) !important; 
+}
+
+@include mixins.respond(tablet) {
+  .container,
+  .container-full {    
+    --container-margin  : 2vw;
+  }
+}
+
+@include mixins.respond(tablet-medium) {
+  .container,
+  .container-full {   
+    --container-padding : 1rem;
+    --container-margin  : 5vw;
+  }
+}
+
+@include mixins.respond(desktop) {
+  .container,
+  .container-full {   
+    --container-padding : 1.5rem;
+    --container-margin  : 7vw;
+  }
+}
+
+@include mixins.respond(desktop-lg) {
+  .container,
+  .container-full {   
+    --container-padding : 2rem;
+    --container-margin  : 10vw;
+  }
+}
+
+@include mixins.respond(desktop-xlg) {
+  .container,
+  .container-full {       
+    --container-margin  : 12vw;
+  }
+}
+
+/*
+ * Génération des classes utilitaire de gestion des marges internes et externes
+ */
+
+$spacing-properties : ("margin", "padding");
+$spacing-prefixes   : ("m", "p");
+$spacing-directions : ("top", "left", "bottom", "right", "horizontal", "vertical");
+$spacing-directions-prefixes : ("t", "s", "b", "e", "x", "y");
+$attrPrefix         : "";
+$valueSep           : "-";
+
+
+@for $i from 1 through length($spacing-properties) {
+  $prop : nth($spacing-properties, $i);  
+  $spacingPrefix : nth($spacing-prefixes, $i);
+  //@debug "prop : "+$prop;
+  @for $k from 1 through length(var.$spacers) {  
+    $spacerValue : nth(var.$spacers, $k);  
+    $spacerPrefix : nth(var.$spacer-prefixes, $k);  
+    @if ($spacerValue != "auto") {              
+      //.#{$spacingPrefix}#{$attrSep}#{$spacerPrefix}
+      .#{$spacingPrefix}#{$valueSep}#{$spacerPrefix} { 
+        #{$prop} : #{$spacerValue} !important;        
+      }
+    }
+    @else {
+      @if ($prop != "padding") {
+        .#{$spacingPrefix}#{$valueSep}#{$spacerPrefix} {
+          #{$prop} : #{$spacerValue} !important;        
+        }
+      }
+    }
+
+    @for $j from 1 through length($spacing-directions) {
+      $dirPrefix : nth($spacing-directions-prefixes, $j);
+      $dir : nth($spacing-directions, $j);
+      @if $dir == 'horizontal' {
+        @if ($spacerValue != "auto") {    
+          //#{$spacingPrefix}#{$attrSep}#{$dirPrefix}#{$valueSep}#{$spacerPrefix}
+          .#{$spacingPrefix}#{$dirPrefix}#{$valueSep}#{$spacerPrefix} {
+            #{$prop}-left : #{$spacerValue} !important;        
+            #{$prop}-right : #{$spacerValue} !important;        
+          }
+        }
+        @else {
+          @if ($prop != "padding") {
+            .#{$spacingPrefix}#{$dirPrefix}#{$valueSep}#{$spacerPrefix} {
+              #{$prop}-left : #{$spacerValue} !important;        
+              #{$prop}-right : #{$spacerValue} !important;        
+            }
+          }
+        }
+      }
+      @else if $dir == 'vertical' {
+        @if ($spacerValue != "auto") { 
+          .#{$spacingPrefix}#{$dirPrefix}#{$valueSep}#{$spacerPrefix} {
+            #{$prop}-top : #{$spacerValue} !important;        
+            #{$prop}-bottom : #{$spacerValue} !important;        
+          }
+        }
+        @else {
+          @if ($prop != "padding") {
+            .#{$spacingPrefix}#{$dirPrefix}#{$valueSep}#{$spacerPrefix} {
+              #{$prop}-top : #{$spacerValue} !important;        
+              #{$prop}-bottom : #{$spacerValue} !important;        
+            }
+          }
+        }
+      }
+      @else {
+        @if ($spacerValue != "auto") { 
+          .#{$spacingPrefix}#{$dirPrefix}#{$valueSep}#{$spacerPrefix}  {
+            #{$prop}-#{$dir} : #{$spacerValue} !important;                  
+          }
+        }
+        @else {
+          @if ($prop != "padding") {
+            .#{$spacingPrefix}#{$dirPrefix}#{$valueSep}#{$spacerPrefix}  {
+              #{$prop}-#{$dir} : #{$spacerValue} !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Utilitaires flex */
+.flex {
+  display:flex;
+}
+.flex-row {
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+// taille de colonnes pour les éléments flex. Basé sur max 12 colonnes. Note : La taille des colonnes est fixe, elle ne se redimensionne pas
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 ((100% * $i) / 12) !important;
+    max-width: ((100% * $i) / 12) !important;
+  }
+}
+
+@for $i from 1 through length(mq.$breakpoints) {
+  $bpv : nth(mq.$breakpoints, $i);    
+  $bp  : nth(mq.$breakpoint-prefixes, $i);
+  @media only screen and (min-width: #{$bpv}) {
+    @for $j from 1 through 12 {
+      .col-#{$bp}-#{$j} {
+        flex: 0 0 ((100% * $j) / 12) !important;
+        max-width: ((100% * $j) / 12) !important;
+      }
+    }    
+  }
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Autres */
+.d-block {
+  display:block !important;
+}
+
+.d-iblock {
+  display: inline-block !important;
+}
+
+/* pour cacher un élément de manière accessible */
+.visibility-hidden {
+  font-size: 0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+  outline:0;
+	clip: rect(0 0 0 0);
+  overflow: hidden;
+  opacity:0;
+	// height: 1px;
+	// margin: -1px;	
+	// padding: 0;
+	// position: absolute;
+	// width: 1px;  
+}

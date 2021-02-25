@@ -1,0 +1,66 @@
+
+@use "../../../abstracts/variables" as var;
+@use "../../../abstracts/mixins" as mixins;
+
+/* ------------------------------------------------------------------------------------------------------
+* _pages/home/header.scss : Exemple d'un en-tête pour la page d'acceuil
+ -------------------------------------------------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  height:95vh;
+  
+  background-color: var(--color-primary-light);
+  background-image: linear-gradient(45deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__wrap {
+    filter: drop-shadow(2px 24px 20px rgba(0, 0, 0, 0.2));
+  }
+
+
+  &__logo-box {
+    position: absolute;
+    width: 4rem;   
+    top:.5rem;
+    left:0;      
+    opacity:1;
+    animation: fadeIn 1.3s ease-out;  
+  }
+
+  &__heading-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  &__scrollDown {
+    margin-top : 3rem;
+    text-align: center;       
+  }
+}
+
+@include mixins.respond(tablet) {
+  .header {
+    &__logo-box {
+      width: 5rem;   
+      top:.5rem;
+      left:.5rem;  
+    }
+  }
+}
+
+
+
+
+
+
+

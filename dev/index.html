@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title" content="{$TITLE}">
+  <meta name="Description" content="{$DESC}">
+  <title>{$TITLE}</title>
+
+  <meta name="robots" content="index, follow">
+
+  <!-- Microdata de localisation -->
+  <meta property="business:contact_data:street_address" content="{$STREET}">
+  <meta property="business:contact_data:locality" content="{$CITY}">
+  <meta property="business:contact_data:region" content="{$STATE}">
+  <meta property="business:contact_data:postal_code" content="{$POSTAL_CODE}">
+  <meta property="business:contact_data:country_name" content="{$COUNTRY}">
+
+  <!-- OpenGraph général -->
+  <meta property="og:type" content="business.business">
+  <meta property="og:title" content="{$TITLE}">
+  <meta property="og:url" content="{$URL}">
+  <meta property="og:image" content="{$LOGO}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{$URL}">
+  <meta property="og:title" content="{$TITLE}">
+  <meta property="og:description" content="{$DESC}">
+  <meta property="og:image" content="{$LOGO}">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{$URL}">
+  <meta property="twitter:title" content="{$TITLE}">
+  <meta property="twitter:description" content="{$DESC}">
+  <meta property="twitter:image" content="{$LOGO}">
+
+  <!-- favicons -->
+  <link rel="shortcut icon" href="./assets/images/your-logo.svg" type="image/svg">
+  
+  <!-- feuille de style de la page. A modifier en fonction de la page -->
+  <link rel="stylesheet" href="./styles/css/home.css">
+
+</head>
+
+<body>
+  <!-- Barre de navigation principal commune à toutes les pages -->
+  <div class="navigation" role="navigation">
+    <input type="checkbox"  class="navigation__checkbox" id="navi-toggle" aria-checked="false">
+    <label for="navi-toggle" class="navigation__button" aria-haspopup="true" aria-controls="main-menu" aria-label="Open or close main menu">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+
+    <div class="navigation__background">&nbsp;</div>
+
+    <nav class="navigation__nav">
+      <ul id="main-menu" class="navigation__menu" role="menu" aria-labelledby="main-menu">
+        <li class="navigation__item" role="none"><a href="#section-about" class="navigation__link" role="menuitem">A propos</a></li>
+        <li class="navigation__item" role="none"><a href="#section-features" class="navigation__link" role="menuitem">Services</a></li>
+        <li class="navigation__item" role="none"><a href="#section-blog" class="navigation__link" role="menuitem">Blog</a></li>
+        <li class="navigation__item" role="none"><a href="#section-contact" class="navigation__link" role="menuitem">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- En-tête des pages à personnaliser, via un fichier scss dans le dossier scss/pages/<votre_page>/_header.scss -->
+  <div class="header__wrap">
+    <header class="header">
+      <div class="header__logo-box">
+        <img src="assets/images/your-logo.svg" width="84px" height="92px" alt="{$TITLE}">
+      </div>
+      <div class="header__heading-box">
+        <h1 class="heading-logo">
+          <span class="heading-logo--main">My company</span>
+          <span class="heading-logo--sub">Lorem ipsum dolor sit.</span>
+        </h1>
+        <a href="#section-about" class="btn btn--white btn--animated" role="button">goto about</a>
+        <div class="header__scrollDown">    
+          <a href="#footer" class="btn-scrollDown" role="button" aria-label="Goto section about"></a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Contenu principal de la page -->
+  <main>
+    <!-- Placez ici vos différentes section -->
+    <section id="section-about" class="section-about">
+      <h2>A propos</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere aperiam alias adipisci itaque veritatis, soluta rerum distinctio, asperiores cupiditate ipsa quos optio delectus! Officia eligendi repellat delectus corporis maxime totam animi, expedita laborum sint vero harum distinctio et commodi, labore architecto tempore. Eos minus odit et, perferendis officia culpa deserunt.</p>
+    </section>
+  </main>
+  
+  <!-- pied de page commun à toutes les pages -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer__logo-box">
+        <img class="footer__logo" src="assets/images/your-logo.svg" width="250px" height="280px" alt="Your company" loading="lazy">
+        <div class="text-center">
+          <h2 class="heading-secondary">Your company</h2>
+        </div>
+      </div>
+      <div class="footer__content">
+        <div class="footer__col">
+          <div class="footer__navigation">
+            <ul class="footer__menu">              
+              <li class="footer__item"><a href="#" class="link-secondary">Offres d'emplois</a></li>
+              <li class="footer__item"><a href="#" class="link-secondary">Mentions légales</a></li>
+              <li class="footer__item"><a href="#" class="link-secondary">Conditions générales</a></li>
+              <li class="footer__item"><a href="#" class="link-secondary">Signaler un bug</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__copyright">
+            Lorem ipsum dolor sit, <a href="" class="link-secondary">amet consectetur</a>  adipisicing elit. Neque fugit ullam ducimus, quae sint, amet nulla, sed esse quod accusamus ut sapiente? <a href="" class="link-secondary">Dolor vitae</a> facere explicabo at expedita culpa fugiat.            
+            Repudiandae expedita quos, explicabo incidunt dolorem, maxime blanditiis neque laudantium officia tempore ipsa libero.
+          </p>
+        </div>
+      </div>
+    </div>    
+  </footer>
+
+  <!-- script pour la page. Changez le nom du script en fonction. Ex : index.html = index.js, blog.html = blog.js ect...-->
+  <script src="./scripts/index.js"></script>
+
+    <!-- SEO ==>  JSON-LD Organization -->
+    <script type="application/ld+json">{
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "name": "{$COMPANY_NAME}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{$STREET}",
+        "addressLocality": "{$CITY}",
+        "addressRegion": "{$STATE}",
+        "postalCode": "{$POSTAL_CODE}"
+      },
+      "telephone": "{$PHONE}"
+    }</script> 
+</body> 
+</html>

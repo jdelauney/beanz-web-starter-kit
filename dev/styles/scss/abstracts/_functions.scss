@@ -1,0 +1,23 @@
+/* ------------------------------------------------------------------------------------------------------
+* _functions.scss : Quelques fonctions utiles, à vous de rajouter les votre
+ -------------------------------------------------------------------------------------------------------- */
+ 
+/* use-css-var($var, $fallback: null)
+ * Utiliser une variable CSS
+ * Exemple : #{use-css-var("myVarName")}
+ *
+ * @scope  Public
+ *
+ * @param  $var [STRING] : Nom de la variable
+ * @param  $fallback [] Optionnel : Assignation d'une nouvelle valeur à la variable 
+ *
+ * @return [STRING]
+ */
+@function use-css-var($var, $fallback: null) {
+  @if($fallback) {
+    @return var(--#{$var}, $fallback);
+  } @else {
+    @return var(--#{$var});
+  }
+}
+

@@ -1,0 +1,40 @@
+/* ------------------------------------------------------------------------------------------------------
+* _typographie.scss : Tout ce qui concerne les styles d'écriture et des titres
+ -------------------------------------------------------------------------------------------------------- */
+/* importation des polices de caractères depuis Goggle Font */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Great+Vibes&family=Quicksand:wght@400;700&display=swap');
+
+/* Definition de la police de caractère par defaut pour la page */
+body {    
+  font-family:'Quicksand', arial, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* style des différents titres */
+.heading-logo {
+  font-family: 'Nanum Myeongjo', Georgia, 'Times New Roman', Times, serif;  
+  color : var(--color-black);
+  margin-bottom: 3rem;
+  line-height: normal;
+
+  &--main {
+    display: block;
+    //font-size: 4rem;
+    font-weight: 700;    
+    letter-spacing: 1rem;
+    
+    text-align: center;
+    text-shadow: -.5rem .5rem 1.5rem var(--color-shadow);
+    animation: moveInLeft 1.2s ease-out;  
+    
+  }
+
+  &--sub {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 700;
+    letter-spacing: .75rem;
+    text-align: center;
+    color:var(--color-primary-dark);
+    animation: moveInRight 1s ease-out .2s;  
+  }
+}

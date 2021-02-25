@@ -1,0 +1,22 @@
+/* ------------------------------------------------------------------------------------------------------
+* _links.scss : Regroupe les styles des liens supplémentaires
+ -------------------------------------------------------------------------------------------------------- */
+
+.link-secondary {
+  &:link,
+  &:visited {
+    color: var(--color-secondary-light);
+    background: var(--color-secondary-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    display:inline-block;
+    transition: all .2s;
+  }
+
+  &:hover,
+  &:active {
+    color: var(--color-primary);
+    box-shadow: var(--shadow-preset-medium);
+    transform: rotate(-3deg) scale(1.1) !important;
+  }  
+}

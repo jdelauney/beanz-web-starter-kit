@@ -1,0 +1,181 @@
+@use "../abstracts/mixins" as mixins;
+
+/* ------------------------------------------------------------------------------------------------------
+* _navigation.scss : Exemple d'un menu de navigation
+ -------------------------------------------------------------------------------------------------------- */
+
+.navigation {
+  display:block;
+
+  &__checkbox {
+    display:none;
+  }
+
+  &__button {
+    background-color: var(--color-primary-light);
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .15);
+    z-index: 2000;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__background {
+    height:3rem;
+    width:3rem;
+    border-radius: 50%;
+    position: fixed;
+    top:1.5rem;
+    right:1.5rem;
+    background-image: radial-gradient(var(--color-primary), var(--color-primary-dark));
+    z-index: 1000;
+    transition: transform .5s cubic-bezier(0.86, 0, 0.07, 1);
+
+    //transform: scale(200);
+  }
+
+  &__nav {
+    display:flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    //width:0;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 1500;
+    opacity:0;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(-100%);
+  }
+
+  &__menu {
+    list-style: none;
+    text-align: center;    
+  }
+
+  &__item {
+    margin:1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: block;
+      font-size: 2rem;
+      font-weight: 300;
+      padding: 0 1rem;
+      color:var(--color-text-white);
+      text-transform: uppercase;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, var(--color-white) 50%);
+      background-size: 220%;
+      transition: all .4s;
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: var(--color-primary-dark);
+      transform: translateX(1rem);
+    }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+    //opacity:1;
+  }
+  
+  &__checkbox:checked ~ &__nav {    
+    opacity:1;
+    //width: 100vw;
+    transform: translateX(0);
+  }
+
+  //ICON
+  &__icon {
+    position: relative;
+    margin-top: 2rem;
+    &,
+    &::before,
+    &::after{
+      width: 2.5rem;
+      height:2px;
+      background: var(--color-primary);
+      display:inline-block;
+      
+    }
+
+    &::before,
+    &::after{
+      position: absolute;
+      content:"";
+      left:0;
+      transition: all .2s;
+    }
+
+    &::before {
+      top:-.8rem;     
+    }
+
+    &:after {
+      top: .8rem;
+    }
+  }
+
+  &__button:hover &__icon{
+    height:3px;
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+    height:3px;
+  }
+  
+  &__button:hover &__icon::after {
+    top: 1rem;
+    height:3px;
+  }
+
+  &__checkbox:checked + &__button  &__icon {
+    background: transparent;    
+  }
+  
+  &__checkbox:checked + &__button  &__icon::before {
+    top:0;
+    transform: rotate(135deg);
+    height:3px;
+    background-color: var(--color-primary-dark);
+  }
+
+  &__checkbox:checked + &__button  &__icon::after {
+    top:0;
+    transform: rotate(-135deg);
+    height:3px;
+    background-color: var(--color-primary-dark);
+  }
+
+}
+
+@include mixins.respond(desktop) {
+  .navigation {
+    &__button {
+      width:5rem;
+      height:5rem;
+      top: 1rem;
+    }
+    &__icon {
+      margin-top: 2.5rem;
+    }
+    &__background {
+      top: 1.5rem;
+      right: 2.5rem;
+    }
+  }
+}

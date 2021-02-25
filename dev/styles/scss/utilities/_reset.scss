@@ -1,0 +1,478 @@
+ /* ------------------------------------------------------------------------------------------------------
+  * _reset.scss : réinitialisation des valeurs des navigateurs pour ne pas avoir de surprise
+  -------------------------------------------------------------------------------------------------------- */
+
+/* 
+ * pour un meilleur positionnement, et adjustement de l'affichage 
+ */
+*,
+*:after,
+*:before {
+  margin : 0;
+  padding: 0;
+  // pour une meilleur affichage des polices
+	-webkit-font-smoothing: antialiased;
+  // celui-la on ne le présente plus ;)
+	box-sizing: inherit;
+}
+
+html {
+  // sans empatement c'est plus jolie
+	font-family: Arial, Helvetica, sans-serif; 
+	
+	// evite le changement de taille des police sous mobile et tablette en cas de changement d'orientation
+  -webkit-text-size-adjust: 100%;    
+  -webkit-font-smoothing: subpixel-antialiased; /*─ Debug safari font weight when fixed element on the page ─*/
+  -webkit-font-smoothing: antialiased; /*─ idem : Debug safari font weight when fixed element on the page ─*/	
+
+  min-height: 100vh; /* corrige l'apparition d'une marge en bas de page */
+}
+
+body {
+  // corection du line-height pour tous les navigateurs
+  line-height: 1.618;  //1.618 = Nombre d'or
+  box-sizing: border-box;    
+}
+
+/*
+ * focus or not focus !
+ * cf https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible
+ *    https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+ */
+[tabindex="-1"]:focus:not(:focus-visible) {
+  outline: 0 !important;
+}
+
+/*
+ * on veux pas d'encadrement et de soulignage horrible des liens , on veux un fond transparent et un affichage en block 
+ */
+a {  
+	display: inline-block;	
+  text-decoration: none;
+	color:inherit;
+  background: transparent;
+	cursor: pointer;
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+  }	
+}
+
+/* 
+ * Le minimum vital, un raz de marrée pour ne pas avoir de surprises 
+ * Par default tout nos containeurs auront un display flex et une position relative
+ */
+article,
+aside,
+details,
+footer,
+header,
+hgroup,
+datalist,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary,
+blockquote,
+pre,
+div {
+	display: block;
+	//display:flex;  // en mode flex c'est pas mal aussi
+	// on est en mode column par defaut
+	//flex-direction: column;
+	position: relative; // par default tout est relatif
+  border: 0;  
+  font-family: inherit;
+  //font-size: 1em;
+}
+
+/* Pour les containeurs spéciaux, ceux-ci seront en display inline-flex et seront placée en haut à gauche de leur containeur parent */
+audio,
+canvas,
+progress {
+	// display: inline-flex;
+	// align-self: start;
+	// justify-self: start;
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+/* Affichage des medias visible en block */
+img, video, svg, picture {
+  //display: flex; // peut être pour video
+  display:block;
+}
+
+/* Adaptation automatique, des images et videos */
+img, video {
+	width:100%;
+	//max-width: 100%;
+	//flex: 0 0 auto;
+	height: auto;
+}
+
+/* 
+ * ça dépend, ça dépasse it's responsive. Jamais plus grand que la surface d'affichage
+ */
+table, td, blockquote, code, pre, object, embed, canvas, audio {	
+	max-width: 100%;
+	height: auto;			
+}
+
+/* Une petite boite dans une autre ;) */
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100% !important; //faudrait pas que ça dépasse 
+}
+
+/*  fix l'affichage des tags img/iframe au milieu et pas de bordures */
+img,
+iframe {
+	vertical-align: middle;
+	border: none;
+	margin: 0;
+}
+
+/* svg, il prend toute la place */
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* pas dépassement pour svg */
+svg:not(:root) {
+	overflow: hidden;
+}
+
+/* pas de controles, on cache */
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/* 
+ * tous en ligne ! 
+ */
+abbr,
+mark,
+meter,
+time,
+output {
+	//display: inline-flex !important;
+  display: inline-block !important;
+}
+
+/* 
+ * Pas de puces sur les listes
+ */
+ul, ol {
+  list-style: none;
+}
+
+/* 
+ * éviter marges supplémentaires sur éléments imbriqués 
+ */
+li p,
+li div,
+li ul {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+/*
+ * Roulers
+ */
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  border: 0;
+  border-top: 1px solid;
+  margin: 2rem 0;
+  clear: both;
+  color: inherit;
+  min-width: 1%;
+  max-width: 100%;	
+}
+
+/*
+ * table styles
+ */
+table {
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  vertical-align: top;
+  margin-top: 1.5rem;
+}
+
+/* 
+ * Des quotes adaptables 
+ */
+blockquote {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after {
+	content: '';
+	content: none;
+}
+
+q {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+:lang(fr) > q {
+	quotes: "\00AB\A0" "\A0\00BB" "\201C" "\201D" "\2018" "\2019";
+}
+
+:lang(en) > q {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+:lang(es) > q {
+	quotes: "\00AB" "\00BB" "\201C" "\201D";
+}
+
+:lang(it) > q {
+	quotes: "\00AB\A0" "\A0\00BB" "\201C" "\201D";
+}
+
+:lang(de) > q {
+	quotes: "\201e" "\201c" "\201a" "\2018";
+}
+
+q:before {
+	content: open-quote;
+}
+
+q:after {
+	content: close-quote;
+}
+
+/* 
+ * évite l'interlignage disgracieux 
+ */
+sup,
+sub {
+	vertical-align: 0;
+	position: relative;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+/*
+ * embedded font double rendering issue fix 
+ * https://css-tricks.com/forums/discussion/10449/weird-mobile-safari-font-face-problem-font-doubled-and-offset-to-the-left-/p1 
+ */
+h1, h2, h3, h4, h5, h6 { 
+	font-weight: normal;
+  //width: max-content;
+}
+
+/* 
+ * virer marge basses sur les derniers enfant 
+ */
+p, ul, ol, dl, blockquote, pre, table {
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+} 
+
+p, blockquote, pre {	
+//td, th, label, caption, details, figure 
+	margin: 0;	
+	line-height: 1.618;
+}
+
+/* 
+ * Pas de boulet sur les listes dans la navigation 
+ */
+nav ul,
+nav ol {
+	list-style: none !important;
+	list-style-image: none !important;
+}
+
+/* 
+ * Pas de texte trop long, cesure auto 
+ */
+textarea, table, td, th, code, samp, div, p {
+	word-wrap: break-word;
+	hyphens: auto;
+}
+
+pre {
+  overflow: auto; 
+  /*white-space: pre; */
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
+}
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace !important;
+  font-size: 1em !important; 
+}
+
+/* 
+ * Petit, petit, petit... 
+ */
+small {
+	font-size: 0.6rem !important;
+}
+
+sub,
+sup {
+	font-size: 0.7rem !important;
+	line-height: 0 !important;
+	position: relative !important;
+	vertical-align: baseline !important;
+}
+
+sup {
+  top: -0.5em !important;
+}
+
+sub {
+  bottom: -0.25em !important;
+}
+
+code {
+	line-height: 1 !important;
+}
+
+/* 
+ * Pour avoir la form 
+ */
+textarea,
+input {
+	max-width: 100% !important;
+}
+
+/* 
+ * pas de bordure autours de Jhon 
+ */
+legend {
+	border: 0 !important;	
+}
+
+/* 
+ * évite un resize et un positionnement potentiellement foireux 
+ */
+textarea {
+	overflow: auto !important;
+	vertical-align: top !important;
+	resize: vertical !important;
+	outline: 0 !important;
+}
+
+/* 
+ * Alignement Vertical 
+ */
+label,
+button,
+input,
+select {
+	vertical-align: middle !important;
+	//outline: 0;
+}
+
+/*
+ * Pour tout le monde pareil et toc.
+ */
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+/* 
+ * quand ça pointe, c'est mieux ;) 
+ */
+button,
+html input[type="button"], // Avoid the WebKit bug in Android 4.0.
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button; // Correct inability to style clickable `input` types in iOS.
+	cursor: pointer !important;
+}
+
+/* 
+ * Remet le curseur par defaut sur les elements désactivés 
+*/
+button[disabled],
+html input[disabled],
+input[disabled] {
+	cursor: default !important;	
+}
+
+[hidden],
+template {
+    display: none !important;
+}
+
+/* 
+ * Style de la balise adress dfn non présent dans Safari et Chrome.
+ */
+dfn {
+    font-style: italic !important;
+}
+
+/*
+ * Soyons accessible, Rendez nous nos curseurs !
+ */
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+}
+
+[aria-hidden="false"][hidden] {
+  display: initial;
+}
+
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+/*
+ * Désactiver les styles d'animations lorsque la réduction de mouvement est activée
+ */
+// @media (prefers-reduced-motion: reduce) {
+//   * {
+//       opacity: 1!important;
+//       animation: none!important;
+//       transition: 0s!important;     
+//   }
+// }

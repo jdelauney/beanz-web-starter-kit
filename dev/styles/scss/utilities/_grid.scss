@@ -1,0 +1,144 @@
+/* ------------------------------------------------------------------------------------------------------
+ * _grid.scss : Systeme de grille basé sur les grid CSS 
+ *              Par defaut la grille contient 12 colonnes
+  -------------------------------------------------------------------------------------------------------- */
+@use "../abstracts/variables" as var;
+@use "../abstracts/breakpoints" as mq;
+@use "../abstracts/mixins" as mixins;
+
+$default-grid-columns : 12; //config-get("framework-values.default-grid-columns");
+
+
+.grid {
+  display: grid; // !important;
+}
+
+//@each $bp, $bpv in mq.$breakpoints {
+@for $i from 1 through length(mq.$breakpoints) {
+  $bpv : nth(mq.$breakpoints, $i);    
+  $bp  : nth(mq.$breakpoint-prefixes, $i);
+  @media only screen and (min-width: #{$bpv}) {    
+    .grid-#{$bp} {
+      display: grid !important;
+    }        
+  }
+}
+
+/* grid-template-columns classes */
+@for $i from 1 through $default-grid-columns {   
+  .cols-#{$i} {
+    grid-template-columns: repeat(#{$i}, minmax(0, 1fr))!important;
+  }
+}
+
+@for $i from 1 through length(mq.$breakpoints) {
+  $bpv : nth(mq.$breakpoints, $i);    
+  $bp  : nth(mq.$breakpoint-prefixes, $i);
+  @media only screen and (min-width: #{$bpv}) {
+    @for $j from 1 through $default-grid-columns {      
+      .cols-#{$j}-#{$bp} {
+        grid-template-columns: repeat(#{$j}, minmax(0, 1fr));          
+      }             
+    }
+  }
+}
+  
+/* gap classes */
+@for $k from 1 through length(var.$spacers) {  
+  $spacerValue : nth(var.$spacers, $k);  
+  $spacerPrefix : nth(var.$spacer-prefixes, $k);  
+  
+  .gap-#{$spacerPrefix} {
+    gap:  $spacerValue;
+  }
+
+  // @for $j from 1 through $default-grid-columns {
+    .col-gap-#{$spacerPrefix} {
+      column-gap:  $spacerValue;
+    }
+    .row-gap-#{$spacerPrefix} {
+      row-gap:  $spacerValue;
+    }
+  //}
+
+  @for $i from 1 through length(mq.$breakpoints) {
+    $bpv : nth(mq.$breakpoints, $i);    
+    $bp  : nth(mq.$breakpoint-prefixes, $i);
+    @media (min-width: #{$bpv}) {
+      @for $k from 1 through length(var.$spacers) {  
+        $spacerValue : nth(var.$spacers, $k);  
+        $spacerPrefix : nth(var.$spacer-prefixes, $k);  
+        .gap-#{$bp}-#{$spacerPrefix}  {
+          gap:  $spacerValue;
+        }
+
+       // @for $j from 1 through $default-grid-columns {
+          .col-gap-#{$bp}-#{$spacerPrefix} {
+            column-gap:  $spacerValue;
+          }
+          .row-gap-#{$bp}-#{$spacerPrefix}  {
+            row-gap:  $spacerValue;
+          }
+        //}
+      }
+    }
+  }
+}
+
+/* grid-items classes */
+@for $i from 1 through $default-grid-columns {
+  
+  .col-start-#{$i} {
+    grid-column-start: #{$i};
+  }
+
+  .col-end-#{$i} {
+    grid-column-end: #{$i};
+  }
+  .col-span-#{$i} {
+    grid-column: span #{$i} / span #{$i};
+  }
+  .col-span-full {
+    grid-column: 1 / -1;
+  }
+  .row-start-#{$i} {
+    grid-row-start: #{$i};
+  }
+  .row-end-#{$i} {
+    grid-row-end: #{$i};
+  }
+  .row-span-#{$i} {
+    grid-row: span #{$i} / span #{$i};
+  }
+}
+    
+// loop for each breakpoint
+@for $i from 1 through length(mq.$breakpoints) {
+  $bpv : nth(mq.$breakpoints, $i);    
+  $bp  : nth(mq.$breakpoint-prefixes, $i);
+  @media only screen and (min-width: #{$bpv}) {
+    @for $j from 1 through $default-grid-columns {      
+      .col-start-#{$bp}-#{$j} {
+        grid-column-start: #{$j};
+      }
+      .col-end-#{$bp}-#{$j} {
+        grid-column-end: #{$j};
+      }
+      .col-span-#{$bp}-#{$j} {
+        grid-column: span #{$j} / span #{$j};
+      }
+      .col-span-full-#{$bp} {
+        grid-column: 1 / -1;
+      }
+      .row-start-#{$bp}-#{$j} {
+        grid-row-start: #{$j};
+      }
+      .row-end-#{$bp}-#{$j} {
+        grid-row-end: #{$j};
+      }
+      .row-span-#{$bp}-#{$j} {
+        grid-row: span #{$j} / span #{$j};
+      }      
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@use "../abstracts/mixins" as mixins;
+
+/* ------------------------------------------------------------------------------------------------------
+* _navigation.scss : Exemple d'un pied de page
+ -------------------------------------------------------------------------------------------------------- */
+
+.footer {
+  margin-top: 4rem;
+  background: var(--color-secondary-dark);
+  padding: 3rem 0;  
+  color: var(--color-secondary-light);
+  min-height:100vh;
+
+  &__logo-box {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  &__logo {
+    width:15rem;
+    height:auto;
+  }
+
+  &__navigation {   
+    border-top: 1px solid var(--color-secondary);
+  }
+
+  &__menu {    
+    display: flex;
+    flex-direction: column;      
+    align-items: center;    
+    width: 100%;
+    padding-top: 2rem;
+    margin-right: 4rem;
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid var(--color-secondary);
+    text-align: justify;
+    padding: 2rem 1rem 0 1rem;      
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;    
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__col {
+    width: 100%;
+  }
+}
+
+@include mixins.respond(tablet-medium) {
+  .footer__col {
+    width: 50%;
+  }
+
+  .footer__copyright {
+    padding: 0;
+    margin-left: 4rem;
+  }
+
+  .footer__navigation {   
+    margin-right: 4rem;
+  }
+}

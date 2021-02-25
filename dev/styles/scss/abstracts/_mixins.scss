@@ -1,0 +1,415 @@
+@use './breakpoints' as var;
+
+/* ------------------------------------------------------------------------------------------------------
+* _mixins.scss : Quelques mixins utiles, à vous de rajouter les votre
+ -------------------------------------------------------------------------------------------------------- */
+
+/* set-css-root-vars($css_variables, $prefix: null) 
+ * Définisions d'une liste de variables CSS dans :root
+ *
+ * @scope  Public
+ *
+ * @param  $css_variables [ARRAY]           : tableau à deux dimensions ($nomVariable : valeurVariables, ...)
+ * @param  $prefix       [STRING] Optionnel : préfixe pour le nom de la variable
+ *
+ */ 
+@mixin set-css-root-vars($css_variables, $prefix: null) {
+  :root {
+    @each $name, $value in $css_variables {
+      @if ($prefix) {
+        --#{$prefix}-#{$name}: #{$value};
+      } @else {
+        --#{$name}: #{$value};
+      }
+    }
+  }
+}
+
+/* set-css-root-var ($name, $value: '', $prefix: null)
+ * Définisions d'une variable CSS dans :root
+ *
+ * @scope  Public
+ *
+ * @param  $name   [STRING]           : Nom de la variable
+ * @param  $value  [STRING]           : valeur de la variable 
+ * @param  $prefix [STRING] Optionnel : préfixe pour le nom de la variable
+ *
+ */ 
+@mixin set-css-root-var ($name, $value: '', $prefix: null) {
+  :root {
+    @if($prefix) {
+      --#{$prefix}-#{$name}: #{$value};
+    } @else {
+      --#{$name}: #{$value};
+    }
+  }
+}
+
+/* set-css-vars($css_variables, $prefix: null) 
+ * Définisions d'une liste de variables CSS  *
+ * @scope  Public
+ *
+ * @param  $css_variables [ARRAY]           : tableau à deux dimensions ($nomVariable : valeurVariables, ...)
+ * @param  $prefix       [STRING] Optionnel : préfixe pour le nom de la variable
+ *
+ */ 
+@mixin set-css-vars($css_variables, $prefix: null) {
+  @each $name, $value in $css_variables {
+    @if ($prefix) {
+      --#{$prefix}-#{$name}: #{$value};
+    } @else {
+      --#{$name}: #{$value};
+    }
+  }  
+}
+
+/* set-css-var($name, $value: '', $prefix: null)
+ * Définitions d'une variable CSS dans
+ *
+ * @scope  Public
+ *
+ * @param  $name   [STRING]           : Nom de la variable
+ * @param  $value  [STRING]           : valeur de la variable 
+ * @param  $prefix [STRING] Optionnel : préfixe pour le nom de la variable
+ *
+ */ 
+@mixin set-css-var($name, $value: '', $prefix: null) {
+  @if($prefix) {
+    --#{$prefix}-#{$name}: #{$value};
+  } @else {
+    --#{$name}: #{$value};
+  }
+}
+
+/* =====[ Utilitaires positionnement et dimensions ]====================================================== */ 
+
+/* box($width, $height: $width)
+ * Définitions des dimensions d'un élément
+ *
+ * @scope  Public
+ *
+ * @param  $width   [INT]           : Largeur de l'élément
+ * @param  $height  [INT] Optionnel : Hauteur de l'élément. Si n'est pas spécifié alors $height = $width
+ *
+ * @Usage :
+ * .myDiv {
+ *   @include box(400px, 300px);
+ * } 
+ *
+ * .mySquareDiv {
+ *   @include box(400px);
+ * }
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   width: 400px;
+ *   height: 300px;
+ * } 
+ *
+ * .mySquareDiv {
+ *   width: 400px;
+ *   height: 400px;
+ * } 
+ *
+ */ 
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/* pseudo($display: block, $pos: absolute, $content: '') 
+ * Création d'un pseudo élément
+ *
+ * @scope  Public
+ *
+ * @param  $display [STRING] : propriété display. Par défaut : block
+ * @param  $pos     [STRING] : propriété position. Par défaut : absolute
+ * @param  $content [STRING] : propriété content. Par défaut : ""
+ *
+ * @Usage :
+ * .myDiv {
+ *   position : relative;
+ *   ::after {
+ *     @include pseudo(block, absolute, "My content");
+ *   }
+ * } 
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   position : relative;
+ * }
+ * .myDiv::after {
+ *   display: block; 
+ *   position: absolute;
+ *   content: "My content";
+ * }
+ *
+ */ 
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+/* set-position($position, $args)
+ * permet de définir la position d'un élément
+ *
+ * @scope  Private
+ *
+ * @param  $position [STRING] : propriété position. 
+ * @param  $args     [STRING] : liste de paramètres pour definir les position top, left, bottom, right
+ *
+ * @Usage :
+ * .myDiv {    
+ *     @include set-position(absolute, top 50% left 50%);
+ *   }
+ * } 
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   position : absolute;
+ *   top: 50%;
+ *   left: 50%
+ * }
+ *
+ */ 
+@mixin set-position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+  position: $position;
+}
+
+/* absolute-pos
+ * permet de définir la position absolue d'un élément
+ *
+ * @scope  Public
+ *
+ * @param  $args     [STRING] : liste de paramètres pour definir les position top, left, bottom, right
+ *
+ * @Usage :
+ * .myDiv {    
+ *     @include absolute-pos(top 50% left 50%);
+ *   }
+ * } 
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   position : absolute;
+ *   top: 50%;
+ *   left: 50%
+ * }
+ *
+ */ 
+@mixin absolute-pos($args: '') {
+  @include set-position(absolute, $args);
+}
+
+/* absolute-center($position : "both")
+ * Centre verticalement ou horizontalement ou les deux, l'élément à l'intérieur de son premier parent non statique
+ *
+ * @scope  Public
+ *
+ * @param $position [STRING] : prend comme argument : vertical ou horizontal ou both. Par défaut : "both"
+ *
+ * @Usage :
+ * .myDiv {    
+ *     @include absolute-center(vertical);
+ *   }
+ * } 
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   top: 50%;
+ *   transform: translateY(-50%);
+ * }
+ * 
+ *
+ */
+@mixin absolute-center($position : both) {
+  position: absolute;
+
+  @if $position == vertical {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @else if $position == horizontal {
+    left: 50%;    
+    transform: translate(-50%);
+  }
+
+  @else if $position == both {
+    top: 50%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* fixed-pos($args: '')
+ * permet de définir la position fixe d'un élément
+ *
+ * @scope  Public
+ *
+ * @param  $args     [STRING] : liste de paramètres pour definir les position top, left, bottom, right
+ *
+ * @Usage :
+ * .myDiv {    
+ *     @include fixed-pos(top 50px left 10px);
+ *   }
+ * } 
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   position : fixed;
+ *   top: 50px;
+ *   left: 10px;
+ * }
+ *
+ */ 
+@mixin fixed-pos($args: '') {
+  @include set-position(fixed, $args);
+}
+
+/* relative-pos($args: '')
+ * permet de définir la position relative d'un élément
+ *
+ * @scope  Public
+ *
+ * @param  $args     [STRING] : liste de paramètres pour definir les position top, left, bottom, right
+ *
+ * @Usage :
+ * .myDiv {    
+ *     @include relative-pos(top 50px left 10px);
+ *   }
+ * } 
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   position : relative;
+ *   top: 50px;
+ *   left: 10px;
+ * }
+ *
+ */ 
+@mixin relative-pos($args: '') {
+  @include set-position(relative, $args);
+}
+
+/* relative-pos($args: '')
+ * permet de définir la position sticky d'un élément
+ *
+ * @scope  Public
+ *
+ * @param  $args     [STRING] : liste de paramètres pour definir les position top, left, bottom, right
+ *
+ * @Usage :
+ * .myDiv {    
+ *     @include sticky-pos(top 50px);
+ *   }
+ * } 
+ *
+ * @Output :
+ *
+ * .myDiv {
+ *   position : sticky;
+ *   top: 50px;
+ * }
+ *
+ */ 
+@mixin sticky-pos($args: '') {
+  @include set-position(sticky, $args);
+}
+
+/* =====[ Utilitaires responsive ]============================================================================ */ 
+// mf = mobile-first
+// df = desktop-first
+@mixin respond-forEach($values, $element, $prop, $start : 1, $mode : mf) {
+
+  @for $i from $start through length(var.$breakpoints) {
+    $bp : nth(var.$breakpoints, $i);
+    $value : nth($values, $i);
+
+    @if $mode == mf {
+      @media only screen and (min-width: #{$bp}) { 
+        #{$element} {
+            #{$prop} :  #{$value};
+        }
+      }  
+
+    }
+    @else {
+      @media only screen and (max-width: #{$bp}) { 
+        #{$element} {
+            #{$prop} :  #{$value};
+        }
+      }     
+    }
+  }    
+}
+
+@mixin respond($breakpoint, $mode : mf) {
+
+  @if $mode == mf {
+    @if $breakpoint == mobile {
+        @media only screen and (min-width: 25em) {  //400px
+          @content 
+        };    
+    }    
+    @if $breakpoint == tablet {
+        @media only screen and (min-width: 37.5em) {  //600px
+          @content 
+        }; 
+    }
+    @if $breakpoint == tablet-medium {
+        @media only screen and (min-width: 56.25em) {  //900px
+          @content 
+        }; 
+    }
+    @if $breakpoint == desktop {
+        @media only screen and (min-width: 75em) {   //1200px
+          @content 
+        }; 
+    }
+    @if $breakpoint == desktop-lg {
+        @media only screen and (min-width: 100em) {  //1600
+          @content 
+        };  
+    }
+    @if $breakpoint == desktop-xlg {
+        @media only screen and (min-width: 112.5em) {  //1800  
+          @content 
+        }; 
+    }
+  }
+  @else {
+    @if $breakpoint == mobile-tiny {
+        @media only screen and (max-width: 25em) { @content };    //400px
+    }    
+    @if $breakpoint == mobile {
+        @media only screen and (max-width: 37.5em) { @content };  //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content }; //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (max-width: 112.5em) { @content };  //1800
+    }
+    @if $breakpoint == huge-desktop {
+        @media only screen and (max-width: 112.5em) { @content };  //1800
+    }
+  }
+}
