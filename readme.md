@@ -42,10 +42,6 @@
 
 Beanz Web Starter Kit is an opinionated boilerplate for designed front-end developers. 
 Is a tools based on Gulpjs for building a great experience across many devices. And helping you to stay productive following the best practices. It's a solid starting point for both professionals and newcomers to the industry.
-
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
-
 ## Browser Support
 
 At present, we officially aim to support the last two versions of the following browsers:
