@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx gulp devBuild",
     "serve": "npx gulp watch",
-    "build": "npx gulp build"
+    "build": "npx gulp build",
+    "clean": "npx gulp cleanBuild"
   },
   "repository": {
     "type": "git",

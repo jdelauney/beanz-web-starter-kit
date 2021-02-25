@@ -1,11 +1,11 @@
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="brand/BeanzLogo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">project_title</h3>
 </p>
-<p style="text-align: center;" markdown="1">
+
 [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/jdelauney/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/jdelauney/)
 </p>
@@ -32,7 +32,7 @@
 ![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 [![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com)
 [![license](http://img.shields.io/badge/autoprefixer-included-blue.svg?style=for-the-badge)](https://www.npmjs.com/package/autoprefixer)
-</p>
+
 
 <!-- PROJECT LOGO -->
 <br />
@@ -75,10 +75,10 @@ This is not to say that BWSK cannot be used in browsers older than those reflect
 | PurgeCSS support | PurgeCSS library for CSS optimisation and remove unused css rules according your html and js files.|
 | Imagemin support | Imagemin connecting most usable plugins library for IMAGES optimisation. We use [gifslice](https://github.com/postcss/autoprefixer), [zopfli](https://github.com/cssnano/cssnano), [pngquant](https://), [mozjpeg](https://github.com/solversgroup/postcss-sort-media-queries),[svgo](https://), [webp](https://  ) etc. |
 | Built-in HTTP Server | A built-in server for previewing your site locally while you develop and iterate. |
-| Live Browser Reloading | Reload the browser in real-time anytime an edit is made without the need for an extension (run `gulp watch` and edit your files). |
-| Cross-device Synchronization | Synchronize clicks, scrolls, forms and live-reload across multiple devices as you edit your project. Powered by [BrowserSync](http://browsersync.io) (run `gulp watch` and open up the IP provided on other devices on your network). |
-| Development build | run `gulp devBuild` to create a partial optimised version of your css to `dev` folder. |
-| Production build | run `gulp build` to create a full optimised version of your project to `prod` folder. |
+| Live Browser Reloading | Reload the browser in real-time anytime an edit is made without the need for an extension (run `gulp watch` or `npm run serve` and edit your files). |
+| Cross-device Synchronization | Synchronize clicks, scrolls, forms and live-reload across multiple devices as you edit your project. Powered by [BrowserSync](http://browsersync.io) (run `gulp watch`  or `npm run serve` and open up the IP provided on other devices on your network). |
+| Development build | run `gulp devBuild`  or `npm run dev` to create a partial optimised version of your css to `dev` folder. |
+| Production build | run `gulp build`  or `npm run build` to create a full optimised version of your project to `prod` folder. |
 <!-- GETTING STARTED -->
 ## Getting Started
 
