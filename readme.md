@@ -8,8 +8,7 @@
 
 [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/jdelauney/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/jdelauney/)
-
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/jdelauney/beanz-web-starter-kit?style=for-the-badge)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/jdelauney/beanz-web-starter-kit?include_prereleases&style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/jdelauney/beanz-web-starter-kit?style=for-the-badge)
 [![Stargazers][stars-shield]][stars-url]
 
