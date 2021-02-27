@@ -1,6 +1,6 @@
 <p align="center">
   <img alt="ForTheBadge built-by-developers" src="http://ForTheBadge.com/images/badges/built-by-developers.svg">
-  <img alt="ForTheBadge built-with-love" src="http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/jdelauney/">
+  <img alt="ForTheBadge built-with-love" src="http://ForTheBadge.com/images/badges/built-with-love.svg">
 </p>
 
 <p align="center">
