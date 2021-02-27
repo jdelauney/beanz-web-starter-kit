@@ -10,24 +10,42 @@
 
   <h3 align="center">Beanz Web Starter Kit</h3>
 </p>
-
-->![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/jdelauney/beanz-web-starter-kit?include_prereleases&style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/jdelauney/beanz-web-starter-kit?style=for-the-badge)
-[![Stargazers][stars-shield]][stars-url]
-[![Contributors][contributors-shield]][contributors-url]<-
-
-->[![Forks][forks-shield]][forks-url]
-![GitHub download](https://img.shields.io/github/downloads/jdelauney/beanz-web-starter-kit/total.svg?style=for-the-badge)
-[![Issues][issues-shield]][issues-url]
-[![requests](http://img.shields.io/badge/PRs-welcome-green.svg?style=for-the-badge)](/pulls)
-[![MIT License][license-shield]][license-url]<-
-
-->![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-[![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com)
-[![license](http://img.shields.io/badge/autoprefixer-included-blue.svg?style=for-the-badge)](https://www.npmjs.com/package/autoprefixer)<-
-
+<p align="center">
+   <a href="https://github.com/jdelauney/beanz-web-starter-kit/releases">
+    <img alt="GitHub release (latest SemVer including pre-releases)" src="https://img.shields.io/github/v/release/jdelauney/beanz-web-starter-kit?include_prereleases&style=for-the-badge">
+  </a>  
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/jdelauney/beanz-web-starter-kit?style=for-the-badge">  
+  <a href="https://github.com/jdelauney/beanz-web-starter-kit/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge">
+  </a>
+  <a href="https://github.com/jdelauney/beanz-web-starter-kit/graphs/contributors">
+    <img alt="Contributors" src="https://img.shields.io/github/contributors/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge">
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/github_username/repo/network/members">
+    <img alt="Forks" src="https://img.shields.io/github/forks/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge">
+  </a>
+  <a href="https://github.com/jdelauney/beanz-web-starter-kit/archive/main.zip">
+    <img alt="GitHub download" src="https://img.shields.io/github/downloads/jdelauney/beanz-web-starter-kit/total.svg?style=for-the-badge">
+  </a>
+  <a href="https://github.com/jdelauney/beanz-web-starter-kit/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge">
+  </a>
+  <a href="/pulls">
+    <img alt="requests" src="http://img.shields.io/badge/PRs-welcome-green.svg?style=for-the-badge">
+  </a>
+  <a href="https://github.com/jdelauney/beanz-web-starter-kit/blob/master/LICENSE">
+    <img alt="MIT License" src="https://img.shields.io/github/license/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge">
+  </a>
+</p>
+<p align="center">
+  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+  <img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  <img alt="JAVASCRIPT" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+  <img alt="SCSS" src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">
+  <img alt="autoprefixer" src="http://img.shields.io/badge/autoprefixer-included-blue.svg?style=for-the-badge">
+</p>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -136,11 +154,10 @@ Project Link: [https://github.com/jdelauney/beanz-web-starter-kit](https://githu
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge
 [contributors-url]: https://github.com/jdelauney/beanz-web-starter-kit/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
+
+
+
 [stars-shield]: https://img.shields.io/github/stars/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge
 [stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge
-[issues-url]: https://github.com/jdelauney/beanz-web-starter-kit/issues
-[license-shield]: https://img.shields.io/github/license/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge
-[license-url]: https://github.com/jdelauney/beanz-web-starter-kit/blob/master/LICENSE.txt
+
+
