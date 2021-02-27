@@ -1,5 +1,5 @@
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/jdelauney/)
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/jdelauney/)
+->[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/jdelauney/)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/jdelauney/)<-
 
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
@@ -9,22 +9,22 @@
   <h3 align="center">Beanz Web Starter Kit</h3>
 </p>
 
-![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/jdelauney/beanz-web-starter-kit?include_prereleases&style=for-the-badge)
+->![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/jdelauney/beanz-web-starter-kit?include_prereleases&style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/jdelauney/beanz-web-starter-kit?style=for-the-badge)
 [![Stargazers][stars-shield]][stars-url]
-[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][contributors-url]<-
 
-[![Forks][forks-shield]][forks-url]
+->[![Forks][forks-shield]][forks-url]
 ![GitHub download](https://img.shields.io/github/downloads/jdelauney/beanz-web-starter-kit/total.svg?style=for-the-badge)
 [![Issues][issues-shield]][issues-url]
 [![requests](http://img.shields.io/badge/PRs-welcome-green.svg?style=for-the-badge)](/pulls)
-[![MIT License][license-shield]][license-url]
+[![MIT License][license-shield]][license-url]<-
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+->![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 [![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com)
-[![license](http://img.shields.io/badge/autoprefixer-included-blue.svg?style=for-the-badge)](https://www.npmjs.com/package/autoprefixer)
+[![license](http://img.shields.io/badge/autoprefixer-included-blue.svg?style=for-the-badge)](https://www.npmjs.com/package/autoprefixer)<-
 
 
 <!-- PROJECT LOGO -->
@@ -61,13 +61,15 @@ This is not to say that BWSK cannot be used in browsers older than those reflect
 | --- | --- |
 | Sass support | Compile [Sass](http://sass-lang.com/) into CSS with ease, bringing support for variables, mixins and more. We use [Dart-Sass](https://sass-lang.com/dart-sass) version compiler and follow [Sass guidelines](https://sass-guidelin.es/#architecture). |
 | PostCSS support | PostCSS connecting most usable plugins library for CSS optimisation. We use [autoprefixer](https://github.com/postcss/autoprefixer), [cssnano](https://github.com/cssnano/cssnano), [postcss-sort-media-queries](https://github.com/solversgroup/postcss-sort-media-queries), etc. |
-| PurgeCSS support | PurgeCSS library for CSS optimisation and remove unused css rules according your html and js files.|
-| Imagemin support | Imagemin connecting most usable plugins library for IMAGES optimisation. We use [gifslice](https://github.com/postcss/autoprefixer), [zopfli](https://github.com/cssnano/cssnano), [pngquant](https://), [mozjpeg](https://github.com/solversgroup/postcss-sort-media-queries),[svgo](https://), [webp](https://  ) etc. |
+| PurgeCSS support | [PurgeCSS](https://purgecss.com) library for CSS optimisation and remove unused css rules according your html and js files.|
+| Imagemin support | Imagemin connecting most usable plugins library for IMAGES optimisation. We use [gifslice](https://github.com/imagemin/imagemin-gifsicle), [zopfli](https://github.com/imagemin/imagemin-zopfli), [pngquant](https://github.com/imagemin/imagemin-pngquant), [mozjpeg](https://github.com/imagemin/imagemin-mozjpe),[svgo](https://github.com/imagemin/imagemin-svgo), [webp](https://github.com/imagemin/imagemin-webp) etc. |
 | Built-in HTTP Server | A built-in server for previewing your site locally while you develop and iterate. |
 | Live Browser Reloading | Reload the browser in real-time anytime an edit is made without the need for an extension (run `gulp watch` or `npm run serve` and edit your files). |
 | Cross-device Synchronization | Synchronize clicks, scrolls, forms and live-reload across multiple devices as you edit your project. Powered by [BrowserSync](http://browsersync.io) (run `gulp watch`  or `npm run serve` and open up the IP provided on other devices on your network). |
 | Development build | run `gulp devBuild`  or `npm run dev` to create a partial optimised version of your css to `dev` folder. |
 | Production build | run `gulp build`  or `npm run build` to create a full optimised version of your project to `prod` folder. |
+| Help | Just run `gulp`  without parameters |
+| Start with Sass | Contains some base scss file like a modern reset, some useful functions, mixins... etc. Ypu are ready to code |
 <!-- GETTING STARTED -->
 ## Getting Started
 
