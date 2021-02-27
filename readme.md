@@ -26,9 +26,6 @@
   <a href="https://github.com/github_username/repo/network/members">
     <img alt="Forks" src="https://img.shields.io/github/forks/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge">
   </a>
-  <a href="https://github.com/jdelauney/beanz-web-starter-kit/archive/main.zip">
-    <img alt="GitHub download" src="https://img.shields.io/github/downloads/jdelauney/beanz-web-starter-kit/total.svg?style=for-the-badge">
-  </a>
   <a href="https://github.com/jdelauney/beanz-web-starter-kit/issues">
     <img alt="Issues" src="https://img.shields.io/github/issues/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge">
   </a>
@@ -89,7 +86,7 @@ This is not to say that BWSK cannot be used in browsers older than those reflect
 | Development build | run `gulp devBuild`  or `npm run dev` to create a partial optimised version of your css to `dev` folder. |
 | Production build | run `gulp build`  or `npm run build` to create a full optimised version of your project to `prod` folder. |
 | Help | Just run `gulp`  without parameters |
-| Start with Sass | Contains some base scss file like a modern reset, some useful functions, mixins... etc. Ypu are ready to code |
+| Start with Sass | Contains some base scss file like a modern reset, some useful functions, mixins... etc. You are ready to code ! |
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -148,16 +145,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Project Link: [https://github.com/jdelauney/beanz-web-starter-kit](https://github.com/jdelauney/beanz-web-starter-kit)
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge
-[contributors-url]: https://github.com/jdelauney/beanz-web-starter-kit/graphs/contributors
-
-
-
-[stars-shield]: https://img.shields.io/github/stars/jdelauney/beanz-web-starter-kit.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-
-
