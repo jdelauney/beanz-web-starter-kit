@@ -1,9 +1,10 @@
-||
-|:--:|
-|[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/jdelauney/)[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/jdelauney/)|
+<p align="center">
+  <img alt="ForTheBadge built-by-developers" src="http://ForTheBadge.com/images/badges/built-by-developers.svg">
+  <img alt="ForTheBadge built-with-love" src="http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/jdelauney/">
+</p>
 
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/jdelauney/beanz-web-starter-kit">
     <img src="brand/BeanzLogo.png" alt="Logo" width="80" height="80">
   </a>
 
