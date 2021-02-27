@@ -8,7 +8,7 @@
     <img src="brand/BeanzLogo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Beanz Web Starter Kit</h3>
+  <h1 align="center">Beanz Web Starter Kit</h1>
 </p>
 <p align="center">
    <a href="https://github.com/jdelauney/beanz-web-starter-kit/releases">
